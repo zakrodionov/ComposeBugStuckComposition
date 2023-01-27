@@ -30,7 +30,7 @@ class NotificationView @JvmOverloads constructor(
         val windowBackground = decorView.background
 
         blurView.setupWith(rootView, RenderScriptBlur(context)) // or RenderEffectBlur
-            .setFrameClearDrawable(windowBackground)
+            //.setFrameClearDrawable(windowBackground)
             .setBlurRadius(2f)
 
         swipeToDismissLayout.setOnDismissListener(this)

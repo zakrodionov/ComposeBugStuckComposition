@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -68,6 +70,7 @@ fun Content(
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
+                    .verticalScroll(rememberScrollState())
                     .fillMaxSize()
                     .padding(horizontal = 20.dp)
             ) {
@@ -82,6 +85,8 @@ fun Content(
                 Button(onClick = { toggleProgress() }) {
                     Text(text = "Toggle progress")
                 }
+                Text(text = stringResource(id = R.string.long_text))
+                Text(text = stringResource(id = R.string.long_text))
             }
         }
     }
