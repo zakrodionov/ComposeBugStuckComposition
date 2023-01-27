@@ -10,7 +10,7 @@ class MainActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val showCompose = true
+        val showCompose = false
         if (showCompose) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.Container, ComposeFragment()).commit()
