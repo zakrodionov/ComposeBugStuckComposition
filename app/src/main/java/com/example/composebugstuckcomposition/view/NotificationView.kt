@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -15,10 +16,13 @@ class NotificationView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : FrameLayout(context, attrs, defStyleAttr) {
+) : FrameLayout(context, attrs, defStyleAttr), TouchEventInterceptor,
+    SwipeToDismissLayout.OnDismissListener {
 
     private val view: View = View.inflate(context, R.layout.view_notification, this)
     private val blurView = view.findViewById<BlurView>(R.id.blurView)
+    private val swipeToDismissLayout =
+        view.findViewById<SwipeToDismissLayout>(R.id.swipeToDismissLayout)
 
     init {
         val decorView = getActivityDecorView()
@@ -28,6 +32,17 @@ class NotificationView @JvmOverloads constructor(
         blurView.setupWith(rootView, RenderScriptBlur(context)) // or RenderEffectBlur
             .setFrameClearDrawable(windowBackground)
             .setBlurRadius(2f)
+
+        swipeToDismissLayout.setOnDismissListener(this)
+        swipeToDismissLayout.setOnTouchListener(this)
+    }
+
+    override fun onInterceptTouch(event: MotionEvent) {
+
+    }
+
+    override fun onDismiss() {
+        (parent as? ViewGroup)?.removeView(this)
     }
 
     private fun getActivityDecorView(): View? {

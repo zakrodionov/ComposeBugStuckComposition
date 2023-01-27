@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ProgressBar
-import androidx.compose.material.*
 import androidx.fragment.app.Fragment
 import com.example.composebugstuckcomposition.R
 import com.example.composebugstuckcomposition.view.NotificationView
@@ -44,11 +43,7 @@ class ViewFragment : Fragment() {
     private fun showNotification() {
         val viewGroup =
             requireActivity().window?.decorView?.findViewById(android.R.id.content) as? ViewGroup
-        val view = NotificationView(requireContext()).apply {
-            setOnClickListener {
-                viewGroup?.removeView(it)
-            }
-        }
+        val view = NotificationView(requireContext())
         val params = FrameLayout.LayoutParams(
             FrameLayout.LayoutParams.MATCH_PARENT,
             FrameLayout.LayoutParams.WRAP_CONTENT

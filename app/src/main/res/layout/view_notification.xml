@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.composebugstuckcomposition.view.SwipeToDismissLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/swipeToDismissLayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
-    android:orientation="vertical">
+    android:layout_height="300dp">
 
-    <eightbitlab.com.blurview.BlurView
-        android:id="@+id/blurView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:backgroundTint="@color/purple_200"
-        app:blurOverlayColor="#A353536C">
+        android:layout_height="300dp"
+        android:orientation="vertical">
 
-        <TextView
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blurView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Notification title"
-            android:textSize="30sp" />
+            android:backgroundTint="@color/purple_200"
+            app:blurOverlayColor="#A353536C">
 
-    </eightbitlab.com.blurview.BlurView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Notification title"
+                android:textSize="30sp" />
 
-</LinearLayout>
+        </eightbitlab.com.blurview.BlurView>
+
+    </LinearLayout>
+</com.example.composebugstuckcomposition.view.SwipeToDismissLayout>
