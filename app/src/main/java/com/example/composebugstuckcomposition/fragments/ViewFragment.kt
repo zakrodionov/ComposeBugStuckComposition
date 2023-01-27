@@ -9,7 +9,6 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.compose.ui.graphics.Color
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.composebugstuckcomposition.R
@@ -44,7 +43,7 @@ class ViewFragment : Fragment() {
 
             val tvColor = findViewById<TextView>(R.id.tvColor)
             tvColor.setOnClickListener {
-               tvColor.setTextColor(ContextCompat.getColor(requireContext(), R.color.red))
+                tvColor.setTextColor(ContextCompat.getColor(requireContext(), R.color.red))
             }
         }
     }

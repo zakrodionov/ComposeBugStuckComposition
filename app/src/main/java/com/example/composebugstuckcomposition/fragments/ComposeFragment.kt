@@ -6,14 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -85,7 +88,13 @@ fun Content(
                 Button(onClick = { toggleProgress() }) {
                     Text(text = "Toggle progress")
                 }
-                Text(text = stringResource(id = R.string.long_text))
+
+                val paintText = remember { mutableStateOf(false) }
+                Text(
+                    text = stringResource(id = R.string.long_text),
+                    color = if (paintText.value) Color.Red else Color.Black,
+                    modifier = Modifier.clickable { paintText.value = !paintText.value }
+                )
                 Text(text = stringResource(id = R.string.long_text))
             }
         }
