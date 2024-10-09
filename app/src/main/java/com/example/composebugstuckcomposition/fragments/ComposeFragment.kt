@@ -18,8 +18,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import com.example.composebugstuckcomposition.R
-import com.example.composebugstuckcomposition.view.NotificationView
 import com.example.composebugstuckcomposition.ui.theme.ComposeBugStuckCompositionTheme
+import com.example.composebugstuckcomposition.view.CustomNotificationView
+import com.example.composebugstuckcomposition.view.NotificationView
 
 class ComposeFragment : Fragment() {
 
@@ -43,6 +44,9 @@ class ComposeFragment : Fragment() {
     private fun showNotification() {
         val viewGroup =
             requireActivity().window?.decorView?.findViewById(android.R.id.content) as? ViewGroup
+
+        //This is fixed
+        //val view = CustomNotificationView(requireContext()).apply {
         val view = NotificationView(requireContext()).apply {
             setOnClickListener {
                 viewGroup?.removeView(it)
